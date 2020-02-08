@@ -42,9 +42,9 @@ void Player::mvdown() {
 }
 
 void Player::mvleft() {
-    mvwaddch(curwin, yLoc, xLoc, '.');
+     mvwaddch(curwin, yLoc, xLoc, '.');
     --xLoc;
-    if (winch(curwin) == '|') { xLoc++; }
+    if (mvwinch(curwin, yLoc, xLoc) == '|') { xLoc = xLoc + 1; }
     if (xLoc < 1) { xLoc = 1; }
 }
 

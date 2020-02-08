@@ -9,17 +9,17 @@
 
 using namespace std;
 
-class Room {
+class Level {
     public:
-    Room(WINDOW * win, string filename);
+    Level(WINDOW * win, string filename);
     void printroom(WINDOW * win, string filename);
 };
 
-Room::Room(WINDOW * win, string filename) {
+Level::Level(WINDOW * win, string filename) {
     printroom(win, filename);
 }
 
-void Room::printroom(WINDOW * win, string filename) {
+void Level::printroom(WINDOW * win, string filename) {
     string line, yPos, xPos, direction, length;
     ifstream ifs;
     ifs.open(filename);
@@ -48,7 +48,7 @@ void Room::printroom(WINDOW * win, string filename) {
                 break;
             case 'd':
                 for (int i = 0; i < lengthInt; ++i) {
-                    mvwaddch(win, yInt, xInt, '|');
+                    if (yInt > 0) mvwaddch(win, yInt, xInt, '|');
                     ++yInt;
                 }
 

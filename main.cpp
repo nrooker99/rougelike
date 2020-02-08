@@ -7,7 +7,7 @@
 #include <ncurses.h>
 #include <fstream>
 #include "player.h"
-#include "room.h"
+#include "level.h"
 
 
 using namespace std;
@@ -39,11 +39,11 @@ int main(int argc,  char ** argv) {
 
     Player * p = new Player(win, 1, 1, '@');
     
-    Room r(win, "room1.txt");
+    Level r(win, "room1.txt");
     do {
         p->display();
         wrefresh(win);
-     } while (p->getmv() != 'x');
+    } while (p->getmv() != 'x');
        
     getch();
 
